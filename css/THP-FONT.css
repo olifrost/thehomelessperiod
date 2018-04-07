@@ -1,0 +1,13 @@
+
+				@font-face {
+    font-family: 'preludemedium';
+    src: url('../fonts/prelude-webfont.eot');
+    src: url('../fonts/prelude-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/prelude-webfont.woff2') format('woff2'),
+         url('../fonts/prelude-webfont.woff') format('woff'),
+         url('../fonts/prelude-webfont.ttf') format('truetype'),
+         url('../fonts/prelude-webfont.svg#preludemedium') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
