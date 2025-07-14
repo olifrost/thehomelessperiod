@@ -1,0 +1,49 @@
+// Modern JavaScript for The Homeless Period - No jQuery needed
+// This file replaces the old jQuery-dependent version
+
+document.addEventListener('DOMContentLoaded', function () {
+
+    // Smooth scroll functionality
+    function smoothScroll(target) {
+        const element = document.querySelector(target);
+        if (element) {
+            element.scrollIntoView({
+                behavior: 'smooth',
+                block: 'start'
+            });
+        }
+    }
+
+    // Petition button click handlers
+    const petitionButtons = document.querySelectorAll('.petition');
+    petitionButtons.forEach(button => {
+        button.addEventListener('click', function (e) {
+            e.preventDefault();
+            smoothScroll('#signatures');
+        });
+    });
+
+    // Donate button click handlers
+    const donateButtons = document.querySelectorAll('.donate');
+    donateButtons.forEach(button => {
+        button.addEventListener('click', function (e) {
+            e.preventDefault();
+            smoothScroll('#donations');
+        });
+    });
+
+    // Simple image lazy loading (if needed in future)
+    const images = document.querySelectorAll('img[data-src]');
+    const imageObserver = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                const img = entry.target;
+                img.src = img.dataset.src;
+                img.classList.remove('lazy');
+                imageObserver.unobserve(img);
+            }
+        });
+    });
+
+    images.forEach(img => imageObserver.observe(img));
+});
